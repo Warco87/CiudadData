@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",              // versión de JS resultante
+    "module": "commonjs",            // sistema de módulos (Node usa commonjs)
+    "strict": true,                  // activa chequeos estrictos de tipos
+    "esModuleInterop": true,         // compatibilidad con import/export
+    "skipLibCheck": true,            // evita revisar tipados de librerías externas
+    "outDir": "./dist"               // carpeta donde se guardan los .js compilados
+  },
+  "include": ["src"],                // carpeta con tu código fuente TS
+  "exclude": ["node_modules"]        // carpetas que no se compilan
+}
