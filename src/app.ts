@@ -1,15 +1,10 @@
 import express, { Request, Response } from "express";
-import mongoose from "mongoose";
 import dotenv from "dotenv";
+import connectDB from "./config/mongo-config";
 
 dotenv.config(); // carga las variables desde .env
 const PORT = process.env.PORT || 3000;
-
-
-mongoose.connect("mongodb://localhost:27017/ciudad-data")
-  .then(() => console.log("Conectado a MongoDB local"))
-  .catch(err => console.error("Error de conexión:", err));
-
+connectDB(); // Conectar a la base de datos
 const app = express();
 
 // Middleware para parsear JSON
