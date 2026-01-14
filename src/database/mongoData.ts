@@ -1,4 +1,4 @@
-import connectDB from "./config/mongo-config";
+import connectDB from "../config/mongo-config";
 const getLanguages = async (): Promise<void> => {
   try{
     const dataBase = await connectDB();
