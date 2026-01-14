@@ -6,7 +6,7 @@ const router = Router();
 
 router.post("/register", registerUser);          // Registro
 router.post("/login", loginUser);                // Login
-router.post("/:userId/informes", addInformeToUser); // Agregar informe
+router.post("/addinformes", addInformeToUser); // Agregar informe
 router.get("/informes", getAllInformes);         // Ver todos los informes
 
 export default router;

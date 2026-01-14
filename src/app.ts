@@ -18,7 +18,7 @@ app.use("/api",router);
 app.use(express.static(path.join(__dirname, "view")));
 // Ruta de prueba
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "view/Singup.html"));
+  res.sendFile(path.join(__dirname, "view/Inicio.html"));
 });
 
 
