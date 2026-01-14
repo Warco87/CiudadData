@@ -1,0 +1,159 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Space Grotesk';
+}
+
+html {
+    background-color: rgb(44, 44, 44);
+}
+
+
+header {
+    background: url('images/Ciudad.png');
+    background-size: 100%;
+    color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5% 0%;
+    font-size: 80px;
+    font-weight: 900;
+    text-shadow: 4px 4px 4px rgba(0,0,0,0.3);
+    -webkit-text-stroke: 0.5px rgb(39, 52, 64);
+    z-index: 100;
+    width: 100%;
+    height: 22%;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    box-shadow: 4px 4px 15px rgba(0,0,0,0.3);
+}
+
+
+div.inicio-container {
+    position:relative;
+    margin: 4.63% auto;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    height: auto; 
+    min-height: 350px;
+    background-color: white;
+    width: 40%; 
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: 30px 30px 20px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+
+div.inicio-container p {
+    font-size: 20px;
+    font-weight: 500;
+    color: rgb(44, 44, 44);
+    margin-bottom: 30px;
+}
+
+
+.button-group {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    justify-content: center;
+}
+
+.user-login-link {
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.user-text {
+    font-size: 16px;
+    font-weight: 900;
+    color: rgb(39, 52, 64);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.user-login-link i {
+    font-size: 32px;
+    color: rgb(39, 52, 64);
+}
+
+/* Efecto al pasar el mouse sobre el conjunto User+Icono */
+.user-login-link:hover {
+    transform: scale(1.05);
+}
+
+.user-login-link:hover .user-text,
+.user-login-link:hover i {
+    color: rgb(54, 54, 255); /* Cambio a azul al hacer hover */
+}
+
+.user-login-icon {
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    font-size: 32px;
+    color: rgb(39, 52, 64);
+    text-decoration: none;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.user-login-icon:hover {
+    color: rgb(54, 54, 255);
+    transform: scale(1.1);
+}
+
+.btn-api {
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    border: 3px solid rgb(44, 44, 44);
+    background-color: rgb(39, 52, 64);
+    color: white;
+    font-size: 18px;
+    font-weight: 900;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.btn-api:hover {
+    background-color: rgb(52, 68, 83);
+    transform: translateY(-3px); 
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+}
+
+.btn-api:active {
+    transform: translateY(0px);
+}
+form h2 {
+    text-align: center;
+    font-size: 35px;
+    font-weight: 700;
+}
+
+form label {
+    font-size: 18px;
+    font-weight: 900;
+}
+
+
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90px;
+    background-color: black;
+    color: white;
+    font-size: 14px;
+}
