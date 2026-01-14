@@ -1,35 +1,20 @@
-class User {
-    private name:string = "";
-    private  email:string = "";
-    private  password:string = "";
-    private informes: Array<Inform> = [];
+import mongoose, { Schema, Document } from "mongoose";
+import { Inform } from "./Inform"; // si ya tienes el modelo Inform
 
-    public User(name:string, email:string, password:string) {
-        this.name = name;
-        this.email = email;
-        this.password = password;
-        this.informes = [];
-    }
-
-    public getEmail():string {
-        return this.email;
-    }
-    public getPassword():string {
-        return this.password;
-    }   
-    public setEmail(email:string):void {
-        this.email = email;
-    }   
-    public setPassword(password:string):void {  
-        this.password = password;
-    }
-    public getName():string {
-        return this.name;
-    }
-    public setName(name:string):void {
-        this.name = name;
-    }
-    public getInformes():Array<Inform> {
-        return this.informes;
-    }
+export interface IUser extends Document {
+  name: string;
+  email: string;
+  password: string;
+  informes: Inform["_id"][]; 
 }
+
+const UserSchema = new Schema<IUser>({
+  name: { type: String, required: true },
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  informes: [{ type: Schema.Types.ObjectId, ref: "Inform" }]
+}, { timestamps: true });
+
+//Aquí se crea y exporta el UserModel
+const UserModel = mongoose.model<IUser>("User", UserSchema);
+export default UserModel;
