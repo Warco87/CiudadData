@@ -22,7 +22,7 @@ export const registerUser = async (req: Request, res: Response) => {
 
     res.status(201).json({
       message: "Usuario registrado",
-      user: { id: user._id, name: user.name, email: user.email }
+      user: { name: user.name, email: user.email }
     });
   } catch (err) {
     console.error("Error al registrar usuario:", err);
@@ -50,7 +50,7 @@ export const loginUser = async (req: Request, res: Response) => {
     // 3. Responder (aquí podrías generar un JWT si quieres)
     res.status(200).json({
       message: "Login exitoso",
-      user: { id: user._id, name: user.name, email: user.email }
+      user: { name: user.name, email: user.email }
     });
   } catch (err) {
     console.error("Error en login:", err);
