@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import connectDB from "./config/mongo-config";
 import router from "./routes/route";
 import open from "open";
+import cors from "cors";
 
 
 dotenv.config(); // carga las variables desde .env
@@ -13,7 +14,8 @@ const app = express();
 
 // Middleware para parsear JSON
 app.use(express.json());
-app.use("/api",router);
+app.use(router);
+app.use(cors());
 
 app.use(express.static(path.join(__dirname, "view")));
 // Ruta de prueba

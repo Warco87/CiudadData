@@ -13,28 +13,65 @@
 
     <header> Ciudad Data </header>
 
-    <body>
-        <div class="inicio-container">
-
-            <a href="./Login.html" class="user-login-icon" title="Ir al Login">
+<body>
+    <div class="inicio-container">
+        <a href="./Login.html" class="user-login-icon" title="Ir al Login">
             <span class="user-text">Usuario</span>
             <i class="fas fa-user-circle"></i>
-            </a>
+        </a>
 
-            <h2>Inicio</h2>
-            <br>
-
-            <p class="intro-text">Elige qué mundo exploraremos hoy</p>
-            
-            <div class="button-group">
-                <button type="button" class="btn-api" id="api1">API 1</button>
-                <button type="button" class="btn-api" id="api2">API 2</button>
-                <a href="./Reportes.html" class="reportsButton"> ver Reportes</a>
-            </div>
-
-            
+        <h2>Inicio</h2>
+        <br>
+        <p class="intro-text">Elige qué mundo exploraremos hoy</p>
+        
+        <div class="button-group">
+            <button type="button" class="btn-api" id="btnGeo">Consultar Clima/Geo</button>
+            <button type="button" class="btn-api" id="btnTransit">Estado Transporte</button>
+            <a href="./Reportes.html" class="reportsButton">Ver Reportes</a>
         </div>
-    </body>
+
+        <div id="resultado" style="margin-top:20px; color:white; font-family: 'Space Grotesk'; font-size: 0.8em; background: #222; padding: 10px; display:none;">
+            <strong>Resultado:</strong>
+            <pre id="dataContent"></pre>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE_URL = 'http://localhost:3000'; // Asegúrate que tu servidor corra aquí
+        const display = document.getElementById('resultado');
+        const content = document.getElementById('dataContent');
+
+        // Función para consultar GeoNames
+        document.getElementById('btnGeo').onclick = async () => {
+            const city = prompt("Ingresa el nombre de la ciudad (ej: Caracas):");
+            if (!city) return;
+            
+            try {
+                const res = await fetch(`${API_BASE_URL}/api/geo/${city}`);
+                const data = await res.json();
+                display.style.display = 'block';
+                content.textContent = JSON.stringify(data, null, 2);
+            } catch (err) {
+                alert("Error conectando al backend");
+            }
+        };
+
+        // Función para consultar Transporte
+        document.getElementById('btnTransit').onclick = async () => {
+            const stopId = prompt("Ingresa el ID de la parada (ej: 400613):");
+            if (!stopId) return;
+
+            try {
+                const res = await fetch(`${API_BASE_URL}/api/transit/${stopId}`);
+                const data = await res.json();
+                display.style.display = 'block';
+                content.textContent = JSON.stringify(data, null, 2);
+            } catch (err) {
+                alert("Error conectando al backend");
+            }
+        };
+    </script>
+</body>
 
     <footer>
         <p>@Copyright - Marco Di Mare, Rosanna Arcia, Adrian Berbesi    </p>
